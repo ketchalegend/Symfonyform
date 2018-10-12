@@ -1,0 +1,9 @@
+<h3>Welcome to Hubotform</h3>
+
+Hello {{ user.username }}! You've registered on our Form!<br><br>
+
+Please confirm your account by clicking this <a href="{{ url('security_confirm', {'token': user.confirmationToken}) }}">link</a>
+
+To login, go to <a href="{{ url('login') }}">Login Page</a><br><br>
+
+Thanks!

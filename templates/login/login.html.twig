@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{ title }}{% endblock %}
+
+
+{% block add %}
+    <div class="container">
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <h2>Admin Login</h2>
+                    <p>Please enter your username and password</p>
+                </div>
+                {% if error %}
+                    <span class="error">{{ error.messageKey }}</span>
+                {% endif %}
+
+                <form id="Login" action="{{ path('login') }}" method="POST">
+                    <div class="form-group">
+                        <input type="text" name='_username' class="form-control"  value="{{ last_username }}" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name='_password' class="form-control" placeholder="Password">
+                    </div>
+                    <input type="hidden" name="_target_path" value="{{ path('data') }}" />
+                    <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            </div>
+            <a class="btn btn-secondary" href="{{ path('user_register') }}" role="button">Register an Account</a>
+        </div>
+    </div>
+{% endblock %}
